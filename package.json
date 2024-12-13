@@ -4,21 +4,11 @@
     "description": "Projeto para raspar dados do YouTube (título, link, visualizações, thumbnail)",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js",
-      "scrape": "node scraper.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
+      "start": "node server.js"
     },
-    "keywords": [
-      "youtube",
-      "scraper",
-      "puppeteer",
-      "csv",
-      "express"
-    ],
     "author": "Nathan Condé",
     "license": "MIT",
     "dependencies": {
-      "csv-writer": "^1.6.0",
       "express": "^4.18.2",
       "puppeteer": "^21.3.8"
     },
