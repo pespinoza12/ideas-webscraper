@@ -1,0 +1,32 @@
+# Configuração do projeto no Railway
+project: scraper-app
+
+# Definição dos ambientes
+environments:
+  production:
+    # Variáveis de ambiente para o ambiente de produção
+    envVars:
+      NODE_ENV: production
+      PORT: 3000
+      PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "false"
+
+# Definição do serviço
+services:
+  - name: scraper-service
+    # Use o Dockerfile para criar o serviço
+    buildType: dockerfile
+    dockerfilePath: ./Dockerfile
+
+    # Porta padrão para o serviço
+    startCommand: npm start
+    disk: 1gb
+    memory: 1gb
+    cpu: shared
+
+    # Exponha a porta correta
+    healthcheck:
+      path: /
+      port: 3000
+      interval: 10s
+      timeout: 3s
+      retries: 3
