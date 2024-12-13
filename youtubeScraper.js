@@ -1,7 +1,12 @@
 const puppeteer = require('puppeteer');
 
 async function buscarVideos(keyword, maxVideos = 10) {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    executablePath: '/usr/bin/google-chrome-stable',
+  });
+
   const page = await browser.newPage();
 
   const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(keyword)}`;
@@ -18,7 +23,7 @@ async function buscarVideos(keyword, maxVideos = 10) {
       titulo: el.innerText.trim(),
       link: el.href,
       visualizacoes: viewsElements[i] ? viewsElements[i].innerText.trim() : 'N/A',
-      thumbnail: thumbnailElements[i] ? thumbnailElements[i].src : 'N/A'
+      thumbnail: thumbnailElements[i] ? thumbnailElements[i].src : 'N/A',
     }));
   }, maxVideos);
 
