@@ -7,6 +7,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.get('/', async (req, res) => {
+  return res.status(200).json({ data: 'Deu tudo certo!' });
+});
+
 app.post('/youtube', async (req, res) => {
   const { keyword, maxVideos } = req.body;
 
@@ -22,6 +26,10 @@ app.post('/youtube', async (req, res) => {
     res.status(500).json({ error: 'Erro ao realizar a busca no YouTube.' });
   }
 });
+
+
+
+
 
 app.post('/instagram', async (req, res) => {
   const { hashtag, maxPosts } = req.body;
