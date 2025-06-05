@@ -1,5 +1,5 @@
 {
-    "name": "ideias-webscraper",
+    "name": "ideas-webscraper",
     "version": "1.0.0",
     "description": "Projeto para raspar dados do YouTube (título, link, visualizações, thumbnail)",
     "main": "server.js",
