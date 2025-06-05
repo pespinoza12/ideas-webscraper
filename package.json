@@ -4,14 +4,16 @@
     "description": "Projeto para raspar dados do YouTube (título, link, visualizações, thumbnail)",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js",
+        "test": "jest"
     },
     "author": "Nathan Condé",
     "license": "MIT",
     "dependencies": {
-      "express": "^4.18.2",
-      "puppeteer": "^22.8.2"
+        "express": "^4.18.2",
+        "puppeteer": "^22.8.2"
     },
-    "devDependencies": {}
-  }
-  
+    "devDependencies": {
+        "jest": "^29.7.0"
+    }
+}
